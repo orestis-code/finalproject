@@ -1,0 +1,25 @@
+<section>
+  <h2>Get User By ID</h2>
+  <label for="userId">User ID:</label>
+  <input type="number" [(ngModel)]="userId" id="userId" />
+  <button (click)="fetchUser()">Fetch User</button>
+
+  <div *ngIf="user">
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Password:</strong> {{ user.password }}</p>
+  </div>
+</section>
+
+<hr />
+
+<section>
+  <h2>Save New User</h2>
+  <label for="userName">Username:</label>
+  <input type="text" [(ngModel)]="newUser.username" id="userName" />
+  <label for="password">Password:</label>
+  <input type="password" [(ngModel)]="newUser.password" id="password" />
+  <button (click)="saveUser()">Save User</button>
+</section>
+
+<p *ngIf="message">{{ message }}</p>

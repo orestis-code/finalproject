@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authenticated Page</title>
+</head>
+<body>
+<div class="authenticated-container">
+  <h1>Welcome, {{ username }}!</h1>
+  <p>You have successfully logged in.</p>
+
+  <div class="search-section">
+    <h2>Search Users</h2>
+    <input
+      type="text"
+      placeholder="Enter username..."
+      [(ngModel)]="searchQuery"
+      (input)="searchUsers()">
+    <button (click)="searchUsers()">Search</button>
+  </div>
+
+  <div class="results-section" *ngIf="users.length > 0">
+    <h2>Results</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button (click)="logout()">Logout</button>
+</div>
+</body>
+</html>

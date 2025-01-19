@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register/Login</title>
+</head>
+<body>
+<div class="auth-container">
+  <h1>Authentication</h1>
+
+  <div class="form-wrapper">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" *ngIf="!isLoginMode">
+      <h2>Register</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="r_username" name="username" ngModel required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" ngModel required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="r_password" name="password" ngModel required>
+
+      <button type="submit">Register</button>
+      <p>
+        Already have an account? <a href="#" (click)="toggleMode($event)">Login here</a>
+      </p>
+    </form>
+
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" *ngIf="isLoginMode">
+      <h2>Login</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" (input)="clearError()" ngModel required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" (input)="clearError()" ngModel required>
+
+      <div class="error-message-container">
+        <div *ngIf="loginError" class="error-message">
+          {{ loginError }}
+        </div>
+      </div>
+
+      <button type="submit">Login</button>
+      <p>
+        Don't have an account? <a href="#" (click)="toggleMode($event)">Register here</a>
+      </p>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+

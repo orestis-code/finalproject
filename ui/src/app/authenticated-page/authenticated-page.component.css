@@ -1,0 +1,42 @@
+.authenticated-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.search-section {
+  margin-bottom: 2rem;
+}
+
+.search-section input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 60%;
+}
+
+.search-section button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+}
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
